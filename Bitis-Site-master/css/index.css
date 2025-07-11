@@ -14,9 +14,24 @@
 }
 
 /* Sản phẩm nổi bật */
-.product-top img{
-    width: 100%;   
+
+.product-top img {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
 }
+.swiper-slide {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.mySwiper {
+  width: 100%;
+}
+
+
 .product-top img:hover{
     box-shadow : 1px 1px 10px;
     -moz-transform: scale(1.01);
