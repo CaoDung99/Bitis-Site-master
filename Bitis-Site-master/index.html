@@ -6,7 +6,7 @@
     <title>Kho Chợ Lớn</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!-- Logo trang trên tiêu đề -->
-    <link rel="shortcut icon" href="./Img/Assets/SangLogo.png">
+    <link rel="shortcut icon" href="./Img/Assets/LogoShop1.png">
     <meta name="description" content="Với niềm đam mê chém gió, quyết tâm SEO top Google">
     <meta name="keywords" content="Hoàng Sang, Giày Đỉnh Cao | Hoàng Sang,Giày Đỉnh Cao, Giày Việt Nam, Best Web Design Đà Nẵng, Hoàng Sang SICT, Best Web Design Ban Mê, Best Web Design, Ban Mê, Đà Nẵng, Best Web Design SICT, Sict.Work">
     <meta name="author" content="Phạm Hoàng Sang">
@@ -87,7 +87,7 @@
     <button class="navbar-toggler m-0" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand mx-auto " href="index.html"><img src="./Img/Assets/LogoShop.png" alt="Logo Hoàng Sang" width="50px" height="50px"></a>
+    <a class="navbar-brand mx-auto " href="index.html"><img src="./Img/Assets/LogoShop1.png" alt="Logo" width="70px" height="70px"></a>
     <div class="pl-3 d-inline show-cart" data-toggle="tooltip" data-placement="top" title="Giỏ hàng hiện tại của bạn"><i class="fas fa-cart-plus"></i></div>
     <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
@@ -548,5 +548,70 @@
         $(".sm-menu").fadeToggle("fast");
       });
     </script> -->
+
+  <!-- Nút Zalo cố định -->
+  <a href="https://zalo.me/0332148505" target="_blank" class="zalo-fixed" title="Chat ngay với Hoàng Sang">
+      <img src="Img/Assets/zalo.png" alt="Zalo" width="64">
+  </a>
+  <style>
+      .zalo-fixed {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        background-color: #0084ff;
+        width: 72px;
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 10px rgba(0,132,255,0.6);
+        animation: blink 1.2s infinite;
+        cursor: pointer;
+        overflow: hidden;
+        position: fixed;
+      }
+
+      .zalo-fixed img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        pointer-events: none;
+      }
+
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.5);
+        transform: scale(0);
+        animation: ripple-effect 0.6s ease-out;
+        pointer-events: none;
+      }
+
+      @keyframes ripple-effect {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+
+      @keyframes blink {
+        0%, 100% { box-shadow: 0 0 12px rgba(0,132,255,0.8); }
+        50% { box-shadow: 0 0 24px rgba(0,132,255,0.4); }
+      }
+  </style>
+  <script>
+      document.querySelector(".zalo-fixed").addEventListener("click", function(e) {
+        const ripple = this.querySelector(".ripple");
+        const rect = this.getBoundingClientRect();
+        ripple.style.left = `${e.clientX - rect.left - 30}px`;
+        ripple.style.top = `${e.clientY - rect.top - 30}px`;
+        ripple.classList.remove("active");
+        void ripple.offsetWidth; // reset animation
+        ripple.classList.add("active");
+      });
+  </script>
+
+
 </body>
 </html>
