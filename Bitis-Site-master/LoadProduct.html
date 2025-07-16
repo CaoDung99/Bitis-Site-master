@@ -1,15 +1,17 @@
+
+
 <!-- Sản phẩm nổi bật -->
 <div class="container-fluid">
     <div class="row text-center" id="product-highlight">
         <div class="col-12 spnoibat mt-2">
-            <h1>Sản Phẩm Nổi Bật</h1>
+            <h1>Tất Cả Sản Phẩm</h1>
             <hr>
         </div>
     </div>
 </div>
 
 <script>
-    fetch("./data/bigseller.json")
+    fetch("https://sheetdb.io/api/v1/uj1zs1xo5vaq1") // <--- Thay bằng SheetDB URL thật của bạn
       .then(response => response.json())
       .then(products => {
         const container = document.getElementById("product-highlight");
