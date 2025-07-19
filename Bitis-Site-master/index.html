@@ -176,12 +176,12 @@
 
   <script>
       const categories = [
-        { name: "Sơn", image: "images/icon-son.png", link: "#" },
-        { name: "Màu Vẽ Áo", image: "images/icon-mauveao.png", link: "#" },
-        { name: "Keo", image: "images/icon-keo.png", link: "#" },
-        { name: "Kim Tuyến", image: "images/icon-kimtuyen.png", link: "#" },
-        { name: "Decal", image: "images/icon-decal.png", link: "#" },
-        { name: "Gương", image: "images/icon-guong.png", link: "#" }
+        { name: "Sơn", image: "https://cf.shopee.vn/file/sg-11134201-7rd4t-m7iuqi2qyrvt28_tn", link: "ProductSonThom.html" },
+        { name: "Màu Vẽ Áo", image: "https://cf.shopee.vn/file/sg-11134201-7ra0n-m59vnhjt6r8828_tn", link: "ProductSonAcrylic.html" },
+        { name: "Keo / Nail", image: "https://cf.shopee.vn/file/sg-11134201-7ra2i-m4yh78kk7kri95_tn", link: "ProductKeo.html" },
+        { name: "Kim Tuyến", image: "https://cf.shopee.vn/file/vn-11134207-7ras8-m4zjgn6i7lfa29_tn", link: "ProductKimTuyen.html" },
+        { name: "Decal", image: "https://cf.shopee.vn/file/sg-11134201-7rccj-m6f4oqhyv3le44_tn", link: "ProductDecal.html" },
+        { name: "Gương", image: "https://cf.shopee.vn/file/sg-11134201-7ra3o-m5b4w6cb5nk089_tn", link: "ProductGương.html" }
       ];
 
       const container = document.querySelector("#product-categories + .row");
@@ -190,7 +190,7 @@
           <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
             <a href="${c.link}" style="text-decoration: none; color: black;">
               <div class="border rounded p-3 h-100 d-flex flex-column align-items-center justify-content-center shadow-sm hover-effect">
-                <img src="${c.image}" alt="${c.name}" style="width: 50px; height: 50px; object-fit: contain;">
+                <img src="${c.image}" alt="${c.name}" style="width: 100%; height: 100%; object-fit: contain;">
                 <div style="margin-top: 8px;">${c.name}</div>
               </div>
             </a>
@@ -457,69 +457,17 @@
       });
     </script> -->
 
-  <!-- Nút Zalo cố định -->
-  <a href="https://zalo.me/0332148505" target="_blank" class="zalo-fixed" title="Chat ngay với Hoàng Sang">
-      <img src="Img/Assets/zalo.png" alt="Zalo" width="64">
-  </a>
-  <style>
-      .zalo-fixed {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 9999;
-        background-color: #0084ff;
-        width: 72px;
-        height: 72px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0 10px rgba(0,132,255,0.6);
-        animation: blink 1.2s infinite;
-        cursor: pointer;
-        overflow: hidden;
-        position: fixed;
-      }
 
-      .zalo-fixed img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-        pointer-events: none;
-      }
+  <!-- zalo.html -->
+  <div id="zalo-container"></div>
 
-      .ripple {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.5);
-        transform: scale(0);
-        animation: ripple-effect 0.6s ease-out;
-        pointer-events: none;
-      }
-
-      @keyframes ripple-effect {
-        to {
-          transform: scale(4);
-          opacity: 0;
-        }
-      }
-
-      @keyframes blink {
-        0%, 100% { box-shadow: 0 0 12px rgba(0,132,255,0.8); }
-        50% { box-shadow: 0 0 24px rgba(0,132,255,0.4); }
-      }
-  </style>
   <script>
-      document.querySelector(".zalo-fixed").addEventListener("click", function(e) {
-        const ripple = this.querySelector(".ripple");
-        const rect = this.getBoundingClientRect();
-        ripple.style.left = `${e.clientX - rect.left - 30}px`;
-        ripple.style.top = `${e.clientY - rect.top - 30}px`;
-        ripple.classList.remove("active");
-        void ripple.offsetWidth; // reset animation
-        ripple.classList.add("active");
-      });
+      fetch("zalo.html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("zalo-container").innerHTML = html;
+        });
   </script>
-
 
 </body>
 </html>
